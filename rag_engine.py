@@ -50,7 +50,7 @@ def retrieve_content (question, embed_model,chunks,index, num_chunks=3):
     raise ValueError("Request atleast one or more chunks")
   query_embed = embed_model.encode([question], convert_to_numpy=True)
   faiss.normalize_L2(query_embed)
-  sim_scores, vec_indices = index.search(query_embed, min(num_chunks)))
+  sim_scores, vec_indices = index.search(query_embed, min(num_chunks,len(chunks)))
   background = ""
   for i in vec_indices[0]:
     if i != -1:
