@@ -33,7 +33,7 @@ def build_vectors (chunks,model_name = "all_MiniLM_L6-v2"):
   faiss.normalize_L2(embed_vectors)
   index = faiss.IndexflatIP(embed_vectors.shape[1])
   index.add(embed_vectors)
-  return index,embed_model
+  return index,embed_model,chunks
   
 #call loadpdf,chuk,embedding
 def load_base (pdf_path = "01_College_Information.pdf"):
