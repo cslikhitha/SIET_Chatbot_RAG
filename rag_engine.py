@@ -67,10 +67,11 @@ def ask_rag (question, embed_model, chunks, index, api_key, num_chunks=3, model_
   prompt = """You are an Professional AI Assitant.
     Answer user question using ONLY document background below.
     Do not invent or assume facts.
+    
     If information not available, simply say Information Missing.
-Document Background:
-{background} 
-User Question: {question}
+    Document Background:
+    """ + background + """
+    User Question: {question}
 Answer:"""
   client = Groq(api_key = key)
   response = client.chat.completions.create(
