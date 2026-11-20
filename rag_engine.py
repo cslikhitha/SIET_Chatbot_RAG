@@ -38,8 +38,8 @@ def build_vectors (chunks,model_name="all-MiniLM-L6-v2"):
 #call loadpdf,chuk,embedding
 def load_base (pdf_path = "01_College_Information.pdf"):
   full_text = load_pdf(pdf_path)
-chunks = create_chunks(full_text)
-index, embed_model =  build_vector(chunks)
+ chunks = create_chunks(full_text)
+ index, embed_model =  build_vector(chunks)
 return index, emded_model ,chunks
 
 #retrive
