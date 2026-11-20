@@ -40,7 +40,7 @@ def load_base (pdf_path = "01_College_Information.pdf"):
   full_text = load_pdf(pdf_path)
  chunks = create_chunks(full_text)
  index, embed_model, chunks = build_vectors(chunks)
-return index, emded_model ,chunks
+return index, embed_model, chunks
 
 #retrive
 def retrieve_content (question, embed_model,chunks,index, num_chunks=3):
@@ -58,7 +58,7 @@ def retrieve_content (question, embed_model,chunks,index, num_chunks=3):
   return background
 
 #ASK
-def ask_rag (question, embed_model, chunks, index, api_key,num_chunks, model_name = "openai/gpt-oss-120b"):
+def ask_rag (question, embed_model, chunks, index, api_key, num_chunks=3,, model_name = "openai/gpt-oss-120b"):
   key = api_key
   if not key:
     raise ValueError("API key Missing")
