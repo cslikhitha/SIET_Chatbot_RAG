@@ -63,7 +63,7 @@ def ask_rag (question, embed_model, chunks, index, api_key, num_chunks=3, model_
   if not key:
       raise ValueError("API key Missing")
     
-    background = retrieve_content(question, embed_model, chunks, index, num_chunks=3)
+    background = retrieve_content(question, embed_model, chunks, index, num_chunks=num_chunks)
     prompt = """You are an Professional AI Assitant.
     Answer user question using ONLY document background below.
     Do not invent or assume facts.
