@@ -30,9 +30,12 @@ if question:
 
   with st.chat_message("assistant"):
     with st.spinner("Asking RAG for answer...."):
-      answer = ask_rag (question, embed_model, chunks, index, api_key = mykey ,num_chunks)
+      answer = ask_rag (question, embed_model, chunks,
+                        index, api_key = mykey)
       st.write(answer)
-
-if st.button("Clear chat")
+      st.session_state.chat_hist.append(
+    {"role" :"assistant" , "content" :answer})
+      
+if st.button("Clear chat"):
   st.session_state.chat_hist = []
   st.rerun()
