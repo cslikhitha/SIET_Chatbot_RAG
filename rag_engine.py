@@ -9,7 +9,7 @@ def load_pdf (pdf_path):
   mypages = [i.extract_text() or "" for i in reader.pages]
   full_text = "\n".join(mypages).strip()
   if not full_text:
-    raise ValueError("No readable Text Found")
+      raise ValueError("No readable Text Found")
   return full_text
 
 #chunking
@@ -38,9 +38,9 @@ def build_vectors (chunks,model_name="all-MiniLM-L6-v2"):
 #call loadpdf,chuk,embedding
 def load_base (pdf_path = "01_College_Information.pdf"):
   full_text = load_pdf(pdf_path)
- chunks = create_chunks(full_text)
- index, embed_model, chunks = build_vectors(chunks)
-return index, embed_model, chunks
+  chunks = create_chunks(full_text)
+  index, embed_model, chunks = build_vectors(chunks)
+  return index, embed_model, chunks
 
 #retrive
 def retrieve_content (question, embed_model,chunks,index, num_chunks=3):
