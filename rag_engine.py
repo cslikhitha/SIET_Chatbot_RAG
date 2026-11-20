@@ -72,14 +72,13 @@ Document Background:
 {background} 
 User Question: {question}
 Answer:"""
-        
-        client = Groq(api_key = key)
-        response = client.chat.completions.create(
+  client = Groq(api_key = key)
+  response = client.chat.completions.create(
           model = model_name,
           messages = [ {"role" : "user",
                     "content" : prompt}],
                      temperature = 0.3,
     )
-    return response.choices[0].message.content
+  return response.choices[0].message.content
     
                                   
